@@ -3,7 +3,7 @@
 > Automatically sets Twitch player quality to your preferred quality with smart fallbacks.  
 > A lightweight userscript for Tampermonkey / Greasemonkey / Violentmonkey.
 
-**Script inspected:** `script.txt` (uploaded source). :contentReference[oaicite:1]{index=1}
+**Script inspected:** `twitch-auto-quality-enforcer.user.js` 
 
 ---
 
