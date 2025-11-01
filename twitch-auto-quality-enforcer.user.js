@@ -18,7 +18,10 @@
 
     // Set the desired auto-quality.
     /* Available Quality Options (from highest to lowest):
+       - Source
+       - 1440p
        - 1080p60
+       - 1080p30
        - 936p60
        - 720p60
        - 720p
@@ -26,9 +29,9 @@
        - 360p
        - 160p
     */
-    const PreferedQuality = "1080p60"; // Change this to your Prefered Quality
+    const PreferedQuality = "Source"; // Change this to your Prefered Quality
 
-    const AllQuality = ["1080p60", "936p60", "720p60", "720p", "480p", "360p", "160p"];
+    const AllQuality = ["Source", "1440p", "1080p60", "1080p30", "936p60", "720p60", "720p", "480p", "360p", "160p"];
     const PreferredIndex = AllQuality.indexOf(PreferedQuality);
 
     let qualityApplied = false;
@@ -108,7 +111,7 @@
                         // 1. FIRST, TRY TO FIND THE PREFERRED QUALITY
                         for (let i = 0; i < inputs.length; i++) {
                             const label = inputs[i].parentNode.querySelector('label');
-                            if (label && label.textContent.trim().includes(PreferedQuality)) {
+                            if (!inputs[i].disabled && label && label.textContent.trim().includes(PreferedQuality)) {
                                 inputs[i].checked = true;
                                 inputs[i].click();
                                 console.warn("Preferred Quality Selected: " + PreferedQuality);
@@ -130,7 +133,7 @@
                                 // Check if this fallback quality exists in the menu
                                 for (let i = 0; i < inputs.length; i++) {
                                     const label = inputs[i].parentNode.querySelector('label');
-                                    if (label && label.textContent.trim().includes(fallbackQuality)) {
+                                    if (!inputs[i].disabled && label && label.textContent.trim().includes(fallbackQuality)) {
                                         inputs[i].checked = true;
                                         inputs[i].click();
                                         console.warn("Fell back to next highest quality: " + fallbackQuality);
